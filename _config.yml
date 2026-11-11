@@ -13,12 +13,12 @@ hero:
   kicker: "Cybersecurity"
   first_name: "Lawson"
   last_name: "Wright"
-  bio: "My approach to security started with a Computer Science foundation: I build systems first, so I know where they break. I **built NetWatch to turn packet captures and Windows security events into evidence-linked alerts, and a Spring Security system enforcing least privilege, separation of duties, and audit logging**. With client application work and hands-on Cisco networking behind me, I'm earning my M.S. in Cybersecurity and Networking at Tennessee State University and holding Security+ along the way."
+  bio: "My approach to security started with a Computer Science foundation: I build systems first, so I know where they break. **Secure Employee Management System enforces least privilege, account lockout, and separation of duties, with a STRIDE model and testing that cut dependency CVEs from 61 to 34. NetWatch turns packet captures and Windows security events into evidence-linked alerts.** With client application work and hands-on Cisco networking behind me, I'm earning my M.S. in Cybersecurity and Networking at Tennessee State University and holding Security+ along the way."
   expertise_chips:
     - "Access Control"
     - "Threat Detection"
+    - "Application Security Testing"
     - "Network Monitoring"
-    - "Packet Analysis"
     - "Secure SDLC"
 
 resume:
@@ -26,17 +26,17 @@ resume:
   file: "resume.pdf"
 
 projects:
-  - title: "NetWatch"
-    description: "A five-page Streamlit analyst dashboard that correlates PCAP and PCAPNG traffic, up to 100,000 packets, with Windows security events from four log channels and produces evidence-linked alerts for investigation and audit review. Three tunable detection rules flag five failed logons in 300 seconds, 15 ports in 60 seconds, and traffic spikes at three times baseline, mapped to MITRE ATT&CK T1110.001 and T1046. Detections were checked against 800 packets, 80 events, 8 failed logons, and a Wireshark capture."
-    tags: ["python", "scapy", "sqlite", "pandas", "streamlit", "mitre att&ck"]
-    links:
-      - { label: "github", url: "https://github.com/Law-wright/NetWatch" }
-
   - title: "Secure Employee Management System"
-    description: "A Spring Boot application that enforces least privilege for three roles, Admin, Manager, and Employee, with method-level authorization, salted BCrypt hashing, and generic login errors so account names cannot be enumerated. The leave workflow blocks self-approval and re-deciding a request, and authentication, access-denial, and data-change events are logged without passwords or session IDs. Twenty-five JUnit 5 tests pass with zero failures, covering authentication, role checks, workflow rules, and audit logging, aligned to NIST 800-53 AC, IA, and AU controls."
-    tags: ["java", "spring boot", "spring security", "sqlite", "junit 5", "nist 800-53"]
+    description: "A Spring Boot application that enforces least privilege for Admin, Manager, and Employee through URL rules and method-level authorization, with salted BCrypt, generic login errors, CSRF protection, and account lockout after five failures. The leave workflow blocks self-approval, and an admin-only audit log records authentication, denials, and data changes without passwords or session IDs. A STRIDE threat model maps 13 threats to NIST SP 800-53 and records known gaps. Forty-one JUnit 5 tests pass with zero failures. CodeQL and dependency scanning remediated a high-severity regex denial-of-service finding and cut dependency CVEs from 61 to 34."
+    tags: ["java", "spring security", "junit 5", "codeql", "owasp", "nist 800-53"]
     links:
       - { label: "github", url: "https://github.com/Law-wright/Secure-Employee-Management-System-SEMS-" }
+
+  - title: "NetWatch"
+    description: "A five-page Streamlit analyst dashboard that correlates up to 100,000 packets of PCAP and PCAPNG traffic with Windows events from Security, System, Application, and Sysmon, and produces evidence-linked alerts with triage status. Three tunable rules flag five failed logons in 300 seconds, 15 distinct SYN ports in 60 seconds, and volume at three times baseline, with user-defined watch rules mapped to MITRE ATT&CK T1110.001 and T1046. Fifty-eight pytest tests validated the rules against 800 packets and 80 events, and a STRIDE model documents the detection gaps."
+    tags: ["python", "scapy", "pandas", "streamlit", "pytest", "mitre att&ck"]
+    links:
+      - { label: "github", url: "https://github.com/Law-wright/NetWatch" }
 
   - title: "Software Supply Chain Security Research"
     description: "Compared Log4Shell (CVE-2021-44228, CVSS 10.0) with the 2020 SolarWinds compromise: a flaw embedded in a widely used library against a build-pipeline compromise, to judge third-party dependency and software integrity risk. Also reviewed AI-related security risks across connected systems and presented the method, findings, and risk implications in writing and in talks at Tennessee State University."
@@ -79,8 +79,8 @@ profile_card:
   bullets:
     - "M.S. Cybersecurity and Networking in progress, GPA 3.77; B.S. Computer Science, GPA 3.69"
     - "CompTIA Security+ (SY0-701)"
-    - "Built NetWatch to correlate packet captures with Windows security events and MITRE ATT&CK detections"
-    - "Enforced least privilege, separation of duties, and audit logging in a Spring Security employee system, covered by 25 passing tests"
+    - "Enforced least privilege, lockout, and separation of duties in SEMS, covered by 41 passing tests and a 13-threat STRIDE model"
+    - "Built NetWatch to correlate packet captures with Windows events; 58 pytest tests cover MITRE ATT&CK detections"
     - "Ran 20+ security test cases on payment processing and database row-level security during a software engineering internship"
     - "Maintained 50 enterprise Cisco switches across 3 VLANs and resolved 20+ network tickets a week"
 
