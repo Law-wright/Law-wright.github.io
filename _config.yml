@@ -13,7 +13,7 @@ hero:
   kicker: "Cybersecurity"
   first_name: "Lawson"
   last_name: "Wright"
-  bio: "My approach to security started with a Computer Science foundation: I build systems first, so I know where they break. **Secure Employee Management System enforces least privilege, account lockout, and separation of duties, with a STRIDE model and testing that cut dependency CVEs from 61 to 34. NetWatch turns packet captures and Windows security events into evidence-linked alerts.** With client application work and hands-on Cisco networking behind me, I'm earning my M.S. in Cybersecurity and Networking at Tennessee State University and holding Security+ along the way."
+  bio: "My approach to security started with a Computer Science foundation: I build systems first, so I know where they break. The work here is where that shows up: **access control checked against its own threat model, detection that stays tied to the evidence, and faculty-supervised research on what a software inventory actually proves.** With client application work and hands-on Cisco networking behind me, I'm earning my M.S. in Cybersecurity and Networking at Tennessee State University and holding Security+ along the way."
   expertise_chips:
     - "Access Control"
     - "Threat Detection"
@@ -25,22 +25,24 @@ resume:
   description: "Work experience, education, and other information in PDF format"
   file: "resume.pdf"
 
+projects_heading: "Projects & Research"
+projects_count: "2 projects + research"
 projects:
   - title: "Secure Employee Management System"
-    description: "A Spring Boot application that enforces least privilege for Admin, Manager, and Employee through URL rules and method-level authorization, with salted BCrypt, generic login errors, CSRF protection, and account lockout after five failures. The leave workflow blocks self-approval, and an admin-only audit log records authentication, denials, and data changes without passwords or session IDs. A STRIDE threat model maps 13 threats to NIST SP 800-53 and records known gaps. Forty-one JUnit 5 tests pass with zero failures. CodeQL and dependency scanning remediated a high-severity regex denial-of-service finding and cut dependency CVEs from 61 to 34."
-    tags: ["java", "spring security", "junit 5", "codeql", "owasp", "nist 800-53"]
+    description: "This system is built so the threat model stays in charge of the controls. Thirteen STRIDE threats map to NIST SP 800-53, and the write-up keeps the residual gaps visible. Least privilege for three roles, a leave workflow that blocks self-approval, account lockout, and an audit log that excludes secrets are what that model required. Forty-one passing JUnit 5 tests were checked back against the model after Claude and Cursor helped draft them. Scanning then removed a high-severity regex denial-of-service bug and cut dependency CVEs from 61 to 34."
+    tags: ["java", "spring security", "junit 5", "codeql", "OWASP", "NIST 800-53"]
     links:
       - { label: "github", url: "https://github.com/Law-wright/Secure-Employee-Management-System-SEMS-" }
 
   - title: "NetWatch"
-    description: "A five-page Streamlit analyst dashboard that correlates up to 100,000 packets of PCAP and PCAPNG traffic with Windows events from Security, System, Application, and Sysmon, and produces evidence-linked alerts with triage status. Three tunable rules flag five failed logons in 300 seconds, 15 distinct SYN ports in 60 seconds, and volume at three times baseline, with user-defined watch rules mapped to MITRE ATT&CK T1110.001 and T1046. Fifty-eight pytest tests validated the rules against 800 packets and 80 events, and a STRIDE model documents the detection gaps."
-    tags: ["python", "scapy", "pandas", "streamlit", "pytest", "mitre att&ck"]
+    description: "NetWatch answers a detection question a capture file cannot: which Windows event belongs with this traffic. It correlates up to 100,000 packets with Security, System, Application, and Sysmon, and each alert stays linked to the rows behind it. Three rules, mapped to MITRE ATT&CK T1110.001 and T1046, flag failed logons, SYN port sweeps, and volume spikes. Fifty-eight pytest tests check those rules on seeded data, and a STRIDE model records the detection gaps."
+    tags: ["python", "scapy", "pandas", "streamlit", "pytest", "MITRE ATT&CK"]
     links:
       - { label: "github", url: "https://github.com/Law-wright/NetWatch" }
 
   - title: "Software Supply Chain Security Research"
-    description: "Compared Log4Shell (CVE-2021-44228, CVSS 10.0) with the 2020 SolarWinds compromise: a flaw embedded in a widely used library against a build-pipeline compromise, to judge third-party dependency and software integrity risk. Also reviewed AI-related security risks across connected systems and presented the method, findings, and risk implications in writing and in talks at Tennessee State University."
-    tags: ["vulnerability analysis", "log4shell", "solarwinds", "ai security"]
+    description: "Faculty-supervised research on a supply-chain failure: the packages you installed are not always the code that runs. Four briefs cover open-source attacks (Log4Shell, event-stream, and xz), runtime software bills of materials, malicious AI models, and expert risk ranking with DEMATEL. MEM-SBOM, published in Computers & Security, is the evidence: 10 loaded-versus-installed mismatches across 51 Python applications, and 83.3% fewer false-positive vulnerability reports in one runtime-SBOM case."
+    tags: ["third-party risk", "SBOM", "Log4Shell", "DEMATEL"]
     links: []   # no link in the index; add a paper or slides link if you have one
 
 # No lab_card in this index; omit that card.
