@@ -14,7 +14,7 @@
 <style>
   :root{
     --bg:#000000;--bg2:#0d0d0c;--bg3:#161613;
-    --ink:#f3efe6;--text:#b3ada2;--muted:#767268;
+    --ink:#f3efe6;--text:#b7b4ae;--text-on-bg2:#bebcb6;--text-on-bg3:#c3c1bb;--muted:#a09c93;
     --border:#1c1c19;--border2:#2b2a25;
     --accent:#d3ac52;--accent-soft:#241d0c;--accent-line:#8f7028;
     --brass:#e6c46f;--green:#3fcf8e;
@@ -75,10 +75,10 @@
   .project-card{border:1px solid var(--border2);background:var(--bg2);padding:1.3rem;position:relative;overflow:hidden;}
   .pj-head{display:flex;justify-content:space-between;gap:1rem;align-items:baseline;margin-bottom:0.5rem;flex-wrap:wrap;}
   .pj-title{font-family:'Fraunces',serif;font-size:1.1rem;font-weight:500;color:var(--ink);}
-  .pj-desc{font-size:14.5px;color:var(--text);line-height:1.75;margin-bottom:0.9rem;}
+  .pj-desc{font-size:14.5px;color:var(--text-on-bg2);line-height:1.75;margin-bottom:0.9rem;}
   .pj-foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.6rem;}
   .pj-tags{display:flex;gap:0.35rem;flex-wrap:wrap;}
-  .pj-tags span{font-family:'Space Mono',monospace;font-size:9.5px;color:var(--text);border:1px solid var(--border2);padding:2px 6px;}
+  .pj-tags span{font-family:'Space Mono',monospace;font-size:9.5px;color:var(--text-on-bg2);border:1px solid var(--border2);padding:2px 6px;}
   .pj-links{display:flex;gap:1rem;}
   .pj-links a{font-family:'Space Mono',monospace;font-size:10.5px;color:var(--accent);text-decoration:none;}
   .pj-links a:hover{color:var(--ink);}
@@ -104,20 +104,20 @@
   .pc-name{font-family:'Fraunces',serif;font-size:17px;font-weight:600;color:var(--ink);margin-bottom:0.25rem;}
   .pc-role{font-family:'Space Mono',monospace;font-size:11.5px;color:var(--accent);line-height:1.5;}
   .pc-list{display:flex;flex-direction:column;gap:0.55rem;}
-  .pc-item{font-size:13px;color:var(--text);line-height:1.55;padding-left:0.9rem;position:relative;}
+  .pc-item{font-size:13px;color:var(--text-on-bg2);line-height:1.55;padding-left:0.9rem;position:relative;}
   .pc-item::before{content:'';position:absolute;left:0;top:0.55em;width:5px;height:5px;border-radius:50%;background:var(--accent);}
 
   .cert-list{display:grid;gap:0.4rem;}
   .cert-row{display:flex;justify-content:space-between;align-items:center;padding:0.55rem 0.8rem;background:var(--bg3);}
   .cert-name{font-family:'Space Mono',monospace;font-size:13px;font-weight:500;color:var(--ink);}
-  .cert-org{font-size:11px;color:var(--muted);}
+  .cert-org{font-size:11px;color:var(--text-on-bg3);}
   .cert-dot{width:6px;height:6px;border-radius:50%;background:var(--green);flex-shrink:0;}
 
   .edu-list{display:grid;gap:0.85rem;}
   .edu-item{padding-bottom:0.85rem;border-bottom:1px solid var(--border);}
   .edu-item:last-child{border-bottom:none;padding-bottom:0;}
   .edu-degree{font-size:13.5px;font-weight:600;color:var(--ink);}
-  .edu-school{font-family:'Space Mono',monospace;font-size:11px;color:var(--text);margin-top:0.2rem;}
+  .edu-school{font-family:'Space Mono',monospace;font-size:11px;color:var(--text-on-bg2);margin-top:0.2rem;}
   .edu-note{font-family:'Space Mono',monospace;font-size:10px;color:var(--muted);margin-top:0.2rem;}
 
   .connect-list{display:grid;gap:0.3rem;}
@@ -198,7 +198,7 @@
           <div class="pj-head">
             <div class="pj-title">Secure Employee Management System</div>
           </div>
-          <p class="pj-desc">This system is built so the threat model stays in charge of the controls. Thirteen STRIDE threats map to NIST SP 800-53, and the write-up keeps the residual gaps visible. Least privilege for three roles, a leave workflow that blocks self-approval, account lockout, and an audit log that excludes secrets are what that model required. Forty-one passing JUnit 5 tests were checked back against the model after Claude and Cursor helped draft them. Scanning then removed a high-severity regex denial-of-service bug and cut dependency CVEs from 61 to 34.</p>
+          <p class="pj-desc">This system is built so the threat model stays in charge of the controls. Thirteen STRIDE threats map to NIST SP 800-53, and the write-up keeps the residual gaps visible. Least privilege for three roles, a leave workflow that blocks self-approval, account lockout, and an audit log that excludes secrets are what that model required. Those same paths were then checked for SQL injection and stored XSS, on login, leave requests, and the audit log. 44 JUnit 5 tests pass; Claude and Cursor helped draft them, and each was reviewed against the model. Scanning removed a high-severity regex denial-of-service bug and cut dependency CVEs from 61 to 34.</p>
           <div class="pj-foot">
             <div class="pj-tags"><span>java</span><span>spring security</span><span>junit 5</span><span>codeql</span><span>OWASP</span><span>NIST 800-53</span></div>
             <div class="pj-links"><a href="https://github.com/Law-wright/Secure-Employee-Management-System-SEMS-" target="_blank" rel="noopener">github ↗</a></div>
@@ -284,10 +284,10 @@
       <div class="pc-list">
         <div class="pc-item">M.S. Cybersecurity and Networking in progress, GPA 3.77; B.S. Computer Science, GPA 3.69</div>
         <div class="pc-item">CompTIA Security+ (SY0-701)</div>
-        <div class="pc-item">Enforced least privilege, lockout, and separation of duties in SEMS, covered by 41 passing tests and a 13-threat STRIDE model</div>
+        <div class="pc-item">Checked SEMS against a 13-threat STRIDE model: 44 passing tests, plus SQL injection and stored XSS checks on the paths a user can reach</div>
         <div class="pc-item">Built NetWatch to correlate packet captures with Windows events; 58 pytest tests cover MITRE ATT&amp;CK detections</div>
         <div class="pc-item">Ran 20+ security test cases on payment processing and database row-level security during a software engineering internship</div>
-        <div class="pc-item">Maintained 50 enterprise Cisco switches across 3 VLANs and resolved 20+ network tickets a week</div>
+        <div class="pc-item">Configured and troubleshot 50 Cisco switches across 3 VLANs and resolved 20+ network tickets a week</div>
       </div>
     </div>
 
