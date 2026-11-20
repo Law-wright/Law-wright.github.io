@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Lawson Wright, a security-focused software engineer. Computer science at Tennessee State University, CompTIA Security+, and projects in network detection and access control.">
+<meta name="description" content="Lawson Wright. Application security and security engineering: threat modeling, secure code review, SAST and SCA, and detection engineering. M.S. candidate at Tennessee State University. CompTIA Security+.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Cybersecurity Portfolio - Lawson Wright">
-<meta property="og:description" content="Lawson Wright, a security-focused software engineer. Computer science at Tennessee State University, CompTIA Security+, and projects in network detection and access control.">
+<meta property="og:description" content="Lawson Wright. Application security and security engineering: threat modeling, secure code review, SAST and SCA, and detection engineering. M.S. candidate at Tennessee State University. CompTIA Security+.">
 <title>Cybersecurity Portfolio - Lawson Wright</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -75,6 +75,7 @@
   .project-card{border:1px solid var(--border2);background:var(--bg2);padding:1.3rem;position:relative;overflow:hidden;}
   .pj-head{display:flex;justify-content:space-between;gap:1rem;align-items:baseline;margin-bottom:0.5rem;flex-wrap:wrap;}
   .pj-title{font-family:'Fraunces',serif;font-size:1.1rem;font-weight:500;color:var(--ink);}
+  .pj-date{font-family:'Space Mono',monospace;font-size:11px;color:var(--muted);white-space:nowrap;}
   .pj-desc{font-size:14.5px;color:var(--text-on-bg2);line-height:1.75;margin-bottom:0.9rem;}
   .pj-foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.6rem;}
   .pj-tags{display:flex;gap:0.35rem;flex-wrap:wrap;}
@@ -167,16 +168,16 @@
   <div class="main-col">
 
     <section class="hero">
-      <div class="hero-kicker">Cybersecurity</div>
+      <div class="hero-kicker">Application Security</div>
       <h1 class="hero-name">Lawson <span>Wright</span></h1>
-      <p class="hero-desc">My approach to security started with a Computer Science foundation: I build systems first, so I know where they break. The work here is where that shows up: <strong>access control checked against its own threat model, detection that stays tied to the evidence, and faculty-supervised research on what a software inventory actually proves.</strong> With client application work and hands-on Cisco networking behind me, I’m earning my M.S. in Cybersecurity and Networking at Tennessee State University and holding Security+ along the way.</p>
+      <p class="hero-desc">My approach to security started with a computer science foundation: I build the system, then I test where access, input, and dependencies fail. The work here is that practice: <strong>access control checked against its own threat model, detection that stays tied to the evidence, a public intake API reduced to the requests it should accept, and faculty-supervised research on what a software inventory actually proves.</strong> Before it, I ran network operations on Cisco switches and routers. I'm earning an M.S. in Cybersecurity and Networking at Tennessee State University, and I hold CompTIA Security+.</p>
       <div class="card-label">Areas of Expertise</div>
       <div class="hero-chips">
-        <span class="chip">Access Control</span>
-        <span class="chip">Threat Detection</span>
         <span class="chip">Application Security Testing</span>
-        <span class="chip">Network Monitoring</span>
-        <span class="chip">Secure SDLC</span>
+        <span class="chip">Secure Code Review</span>
+        <span class="chip">Threat Modeling</span>
+        <span class="chip">SAST / SCA</span>
+        <span class="chip">Detection Engineering</span>
       </div>
     </section>
 
@@ -191,16 +192,17 @@
     <section class="projects-section" id="projects">
       <div class="sec-head">
         <h2>Projects &amp; Research</h2>
-        <div class="sec-count mono">2 projects + research</div>
+        <div class="sec-count mono">3 projects + research</div>
       </div>
       <div class="projects-list">
         <div class="project-card">
           <div class="pj-head">
             <div class="pj-title">Secure Employee Management System</div>
+            <div class="pj-date">Nov 2026 – Present</div>
           </div>
-          <p class="pj-desc">This system is built so the threat model stays in charge of the controls. Thirteen STRIDE threats map to NIST SP 800-53, and the write-up keeps the residual gaps visible. Least privilege for three roles, a leave workflow that blocks self-approval, account lockout, and an audit log that excludes secrets are what that model required. Those same paths were then checked for SQL injection and stored XSS, on login, leave requests, and the audit log. 44 JUnit 5 tests pass; Claude and Cursor helped draft them, and each was reviewed against the model. Scanning removed a high-severity regex denial-of-service bug and cut dependency CVEs from 61 to 34.</p>
+          <p class="pj-desc">This system is built so the threat model stays in charge of the controls. I mapped 13 STRIDE threats to NIST SP 800-53 and documented the residual gaps and the risk rationale. Least privilege for three roles (@PreAuthorize), a leave workflow that blocks self-approval, NIST AC-7 lockout, salted BCrypt, CSRF protection, enumeration-safe logins, and an audit log that excludes secrets are what that model required. I then checked SQL injection and stored XSS on the three surfaces a user can reach: login, leave requests, and the audit log, by code review, manual payloads, and automated tests. 44 JUnit 5 tests cover auth, RBAC, lockout, audit, and injection. Claude and Cursor helped draft them, and I reviewed each one against the model. CodeQL, Dependabot, and OWASP Dependency-Check run in GitHub. Those scans found a high-severity regex denial-of-service bug, which I fixed, and dependency CVEs fell from 61 to 34, a 44% reduction.</p>
           <div class="pj-foot">
-            <div class="pj-tags"><span>java</span><span>spring security</span><span>junit 5</span><span>codeql</span><span>OWASP</span><span>NIST 800-53</span></div>
+            <div class="pj-tags"><span>java</span><span>spring boot</span><span>spring security</span><span>sqlite</span><span>junit 5</span><span>codeql</span><span>NIST 800-53</span></div>
             <div class="pj-links"><a href="https://github.com/Law-wright/Secure-Employee-Management-System-SEMS-" target="_blank" rel="noopener">github ↗</a></div>
           </div>
         </div>
@@ -208,19 +210,32 @@
         <div class="project-card">
           <div class="pj-head">
             <div class="pj-title">NetWatch</div>
+            <div class="pj-date">Oct 2026 – Present</div>
           </div>
-          <p class="pj-desc">NetWatch answers a detection question a capture file cannot: which Windows event belongs with this traffic. It correlates up to 100,000 packets with Security, System, Application, and Sysmon, and each alert stays linked to the rows behind it. Three rules, mapped to MITRE ATT&amp;CK T1110.001 and T1046, flag failed logons, SYN port sweeps, and volume spikes. Fifty-eight pytest tests check those rules on seeded data, and a STRIDE model records the detection gaps.</p>
+          <p class="pj-desc">NetWatch answers a detection question a capture file cannot: which Windows event belongs with this traffic. The Streamlit triage dashboard correlates up to 100,000 PCAP packets with four Windows log channels: Security, System, Application, and Sysmon. Three tunable rules, mapped to MITRE ATT&amp;CK T1110.001 (Password Guessing) and T1046 (Network Service Discovery), flag failed logons, SYN port sweeps, and volume spikes. Each alert stays linked to the rows behind it and carries a status. 58 pytest tests check the rules on seeded data, and a STRIDE model records the detection gaps.</p>
           <div class="pj-foot">
-            <div class="pj-tags"><span>python</span><span>scapy</span><span>pandas</span><span>streamlit</span><span>pytest</span><span>MITRE ATT&amp;CK</span></div>
+            <div class="pj-tags"><span>python</span><span>scapy</span><span>sqlite</span><span>pandas</span><span>streamlit</span><span>pytest</span><span>MITRE ATT&amp;CK</span></div>
             <div class="pj-links"><a href="https://github.com/Law-wright/NetWatch" target="_blank" rel="noopener">github ↗</a></div>
           </div>
         </div>
 
         <div class="project-card">
           <div class="pj-head">
-            <div class="pj-title">Software Supply Chain Security Research</div>
+            <div class="pj-title">Wright Intelligent Systems</div>
+            <div class="pj-date">Mar 2026 – Present</div>
           </div>
-          <p class="pj-desc">Faculty-supervised research on a supply-chain failure: the packages you installed are not always the code that runs. Four briefs cover open-source attacks (Log4Shell, event-stream, and xz), runtime software bills of materials, malicious AI models, and expert risk ranking with DEMATEL. MEM-SBOM, published in Computers &amp; Security, is the evidence: 10 loaded-versus-installed mismatches across 51 Python applications, and 83.3% fewer false-positive vulnerability reports in one runtime-SBOM case.</p>
+          <p class="pj-desc">The client portal let any signed-in user read client data. I enforced row-level security on 7 PostgreSQL tables and narrowed that access to admin-only. On the public lead-intake API, I added an origin allowlist, server-side Turnstile bot checks, fail-closed rate limiting at 5 requests per IP per 10 minutes, HTML sanitization, and a strict content security policy. The stack is Supabase, PostgreSQL, TypeScript, and Cloudflare.</p>
+          <div class="pj-foot">
+            <div class="pj-tags"><span>supabase</span><span>postgresql</span><span>typescript</span><span>cloudflare</span><span>row-level security</span></div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="pj-head">
+            <div class="pj-title">Software Supply Chain Security Research</div>
+            <div class="pj-date">Sept 2026 – Present</div>
+          </div>
+          <p class="pj-desc">Faculty-supervised research at Tennessee State University on a supply-chain failure: the packages you installed are not always the code that runs. I delivered four briefings on Log4Shell, event-stream, xz Utils, runtime software bills of materials, malicious AI models, and DEMATEL risk prioritization. I analyzed the MEM-SBOM study published in Computers &amp; Security: 10 version mismatches across 51 Python applications, and 83.3% fewer false positives in one runtime-SBOM case.</p>
           <div class="pj-foot">
             <div class="pj-tags"><span>third-party risk</span><span>SBOM</span><span>Log4Shell</span><span>DEMATEL</span></div>
           </div>
@@ -279,22 +294,23 @@
     <div class="card">
       <div class="pc-header">
         <div class="pc-name">Lawson Wright</div>
-        <div class="pc-role">Security-focused Software Engineer</div>
+        <div class="pc-role">Application Security · Security Engineering · Cybersecurity Analyst</div>
       </div>
       <div class="pc-list">
         <div class="pc-item">M.S. Cybersecurity and Networking in progress, GPA 3.77; B.S. Computer Science, GPA 3.69</div>
         <div class="pc-item">CompTIA Security+ (SY0-701)</div>
-        <div class="pc-item">Checked SEMS against a 13-threat STRIDE model: 44 passing tests, plus SQL injection and stored XSS checks on the paths a user can reach</div>
-        <div class="pc-item">Built NetWatch to correlate packet captures with Windows events; 58 pytest tests cover MITRE ATT&amp;CK detections</div>
-        <div class="pc-item">Ran 20+ security test cases on payment processing and database row-level security during a software engineering internship</div>
-        <div class="pc-item">Configured and troubleshot 50 Cisco switches across 3 VLANs and resolved 20+ network tickets a week</div>
+        <div class="pc-item">SEMS: the threat model names the control, and the tests check the paths a user can reach</div>
+        <div class="pc-item">NetWatch: each alert stays tied to the packet and the Windows event behind it</div>
+        <div class="pc-item">Lead intake: row-level access on 7 tables limited to admins, and a public API held to a fail-closed rate limit</div>
+        <div class="pc-item">BECO: 20+ security tests on Stripe payment flows in an iOS/Android app, covering access control, refunds, and row-level security</div>
+        <div class="pc-item">Music City Center: 50 Cisco switches and routers across 3 VLANs, for 50+ events, with 20+ tickets and outages a week</div>
       </div>
     </div>
 
     <div class="card" id="certifications">
       <div class="card-label">Certifications</div>
       <div class="cert-list">
-        <div class="cert-row"><div><div class="cert-name">CompTIA Security+ (SY0-701)</div><div class="cert-org">CompTIA</div></div><div class="cert-dot"></div></div>
+        <div class="cert-row"><div><div class="cert-name">CompTIA Security+</div><div class="cert-org">SY0-701 · CompTIA</div></div><div class="cert-dot"></div></div>
       </div>
     </div>
 
